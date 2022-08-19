@@ -8,7 +8,7 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.5.0
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
-	k8s.io/apimachinery v0.24.2
+	k8s.io/apimachinery v0.24.4
 	k8s.io/cli-runtime v0.24.2
 	k8s.io/client-go v0.24.2
 	sigs.k8s.io/yaml v1.3.0
