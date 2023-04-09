@@ -1,8 +1,4 @@
 project_name: kubepug
-release:
-  github:
-    owner: rikatz
-    name: kubepug
 
 gomod:
   proxy: true
@@ -63,3 +59,11 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
+
+changelog:
+  use: github-native
+
+release:
+  github:
+    owner: rikatz
+    name: kubepug
