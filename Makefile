@@ -3,7 +3,7 @@ GIT_HASH ?= $(shell git rev-parse HEAD)
 
 PKG=sigs.k8s.io/release-utils/version
 LDFLAGS=-X $(PKG).gitVersion=$(GIT_VERSION)
-KO_PREFIX ?= ghcr.io/rikatz
+KO_PREFIX ?= ghcr.io/cpanato
 
 .PHONY: build
 build:
@@ -16,18 +16,18 @@ test:
 .PHONY: ko
 ko:
 	LDFLAGS="$(LDFLAGS)" GIT_HASH=$(GIT_HASH) GIT_VERSION=$(GIT_VERSION) \
-	KO_DOCKER_REPO=${KO_PREFIX}/kubepug ko publish --bare \
-		--platform=all \
+	KO_DOCKER_REPO=${KO_PREFIX}/kubepug ko publish --bare --tags latest --tags $(GIT_VERSION) \
+		--platform=all --image-refs kubepugImagerefs \
 		github.com/rikatz/kubepug
 
 .PHONY: release
 release:
-	LDFLAGS="$(LDFLAGS)" goreleaser release
+	LDFLAGS="$(LDFLAGS)" goreleaser release --clean
 
 # used when need to validate the goreleaser
 .PHONY: snapshot
 snapshot:
-	LDFLAGS="$(LDFLAGS)" goreleaser release --skip-sign --skip-publish --snapshot --rm-dist
+	LDFLAGS="$(LDFLAGS)" goreleaser release --skip-sign --skip-publish --snapshot --clean
 
 .PHONY: clean
 clean:
