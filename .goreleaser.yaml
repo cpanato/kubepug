@@ -1,5 +1,8 @@
 project_name: kubepug
 
+env:
+  - COSIGN_YES=true
+
 before:
   hooks:
     - go mod tidy
