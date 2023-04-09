@@ -17,17 +17,17 @@ test:
 ko:
 	LDFLAGS="$(LDFLAGS)" GIT_HASH=$(GIT_HASH) GIT_VERSION=$(GIT_VERSION) \
 	KO_DOCKER_REPO=${KO_PREFIX}/kubepug ko publish --bare \
-		--platform=all \
+		--platform=all --image-refs kubepugImagerefs \
 		github.com/rikatz/kubepug
 
 .PHONY: release
 release:
-	LDFLAGS="$(LDFLAGS)" goreleaser release
+	LDFLAGS="$(LDFLAGS)" goreleaser release --clean
 
 # used when need to validate the goreleaser
 .PHONY: snapshot
 snapshot:
-	LDFLAGS="$(LDFLAGS)" goreleaser release --skip-sign --skip-publish --snapshot --rm-dist
+	LDFLAGS="$(LDFLAGS)" goreleaser release --skip-sign --skip-publish --snapshot --clean
 
 .PHONY: clean
 clean:
