@@ -1,7 +1,7 @@
 project_name: kubepug
 
-gomod:
-  proxy: true
+# gomod:
+#   proxy: true
 
 builds:
   - id: kubepug
@@ -65,5 +65,5 @@ changelog:
 
 release:
   github:
-    owner: rikatz
+    owner: cpanato
     name: kubepug
