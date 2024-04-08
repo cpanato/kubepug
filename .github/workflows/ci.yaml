@@ -28,7 +28,7 @@ jobs:
           GOPATH=$(pwd) go get k8s.io/api
           GOPATH=$(pwd) ../generator-bin -i k8s.io/api/./... -v 9 > ../docs/data/data.json
       
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
