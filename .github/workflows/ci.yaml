@@ -73,7 +73,7 @@ jobs:
           version: v1.0.5
 
       - name: Report code coverage
-        uses: zgosalvez/github-actions-report-lcov@73c068acfc6a265af813132fbca7ef8738a1f52f # v3.1.8
+        uses: zgosalvez/github-actions-report-lcov@83ba5f889873cd78f555f2c292cbea5d652b06d1 # v4.1.7
         with:
           coverage-files: coverage.lcov
           artifact-name: code-coverage-report
